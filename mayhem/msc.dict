@@ -1,0 +1,20 @@
+# tinyusb MSC fuzzer dictionary — USB Mass-Storage / SCSI tokens parsed by msc_device.c.
+# The fuzzed stream is the USB interrupt/transfer byte feed; these tokens steer it toward the
+# Command Block Wrapper (CBW) signature + SCSI command opcodes the MSC class decodes.
+
+# Command/Status Block Wrapper signatures (little-endian "USBC" / "USBS")
+cbw_signature="USBC"
+csw_signature="USBS"
+
+# SCSI command opcodes (single-byte CDB[0])
+scsi_test_unit_ready="\x00"
+scsi_request_sense="\x03"
+scsi_inquiry="\x12"
+scsi_mode_select_6="\x15"
+scsi_mode_sense_6="\x1a"
+scsi_start_stop_unit="\x1b"
+scsi_prevent_allow_removal="\x1e"
+scsi_read_format_capacity="\x23"
+scsi_read_capacity_10="\x25"
+scsi_read_10="\x28"
+scsi_write_10="\x2a"

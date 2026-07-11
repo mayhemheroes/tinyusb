@@ -1,0 +1,9 @@
+project: tinyusb
+target: msc
+testsuite:
+  - https://$MAYHEM_DOMAIN/$MAYHEM_PROJECT/$MAYHEM_TARGET/testsuite.tar
+  - file://mayhem/msc/testsuite
+cmds:
+  - cmd: /mayhem/msc
+    libfuzzer: true
+    dictionary: /mayhem/mayhem/msc.dict

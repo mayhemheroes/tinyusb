@@ -1,0 +1,9 @@
+project: tinyusb
+target: cdc
+testsuite:
+  - https://$MAYHEM_DOMAIN/$MAYHEM_PROJECT/$MAYHEM_TARGET/testsuite.tar
+  - file://mayhem/cdc/testsuite
+cmds:
+  - cmd: /mayhem/cdc
+    libfuzzer: true
+    dictionary: /mayhem/mayhem/cdc.dict
